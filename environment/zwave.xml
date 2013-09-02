@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dhc:dhc xmlns:dhc="http://elite.polito.it/dogHomeConfiguration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://elite.polito.it/dogHomeConfiguration home_configuration.xsd ">
+	<dhc:buildingEnvironment>
+		<dhc:building name="Case">
+			<dhc:flat class="Flat" name="ZWAVE_Demo">
+				<dhc:room class="StorageRoom" name="demo_room">
+					<dhc:ceiling class="Ceiling" name="ceiling" />
+					<dhc:floor class="Floor" name="floor" />
+					<dhc:wall class="Wall" name="wall" />
+				</dhc:room>
+			</dhc:flat>
+		</dhc:building>
+	</dhc:buildingEnvironment>
+	<dhc:controllables>
+		<dhc:device domoticSystem="ZWave" name="zwave-gateway"
+			class="ZWaveGateway">
+			<dhc:description>The ZWave X gateway
+			</dhc:description>
+			<dhc:isIn>demo_room</dhc:isIn>
+			<dhc:param value="1" name="NodeID" />
+		</dhc:device>
+		
+		
+		<dhc:device domoticSystem="ZWave" name="Lamp_Holder" class="MainsPowerOutlet" gateway="zwave-gateway">
+            <dhc:description>A MainsPowerOutlet instance named MainsPowerOutlet_ZW1</dhc:description>
+            <dhc:isIn>demo_room</dhc:isIn>
+            <dhc:param value="6" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />
+            <!-- <dhc:hasMeter>energy_power_meter_1</dhc:hasMeter> -->
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OffCommand_Lamp_Holder" name="OffCommand_Lamp_Holder" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OnCommand_Lamp_Holder" name="OnCommand_Lamp_Holder" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification name="StateChangeNotification_Lamp_Holder" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        
+       <dhc:device domoticSystem="ZWave" name="SmartEnergySwitch" class="MeteringPowerOutlet" gateway="zwave-gateway">
+			<dhc:description>A "MeteringPowerOutlet" instance named SmartEnergySwitch</dhc:description>
+            <dhc:isIn>demo_room</dhc:isIn>
+            <dhc:param value="5" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OffCommand_ZW8" name="OffCommand_ZW8" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OnCommand_ZW8" name="OnCommand_ZW8" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+			<!--  <dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetActivePowerCommand_ZW8" name="GetActivePowerCommand_ZW8" class="GetActivePowerCommand">
+						<dhc:param value="getActivePower" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetActiveEnergyValueCommand_ZW8" name="GetActiveEnergyValueCommand_ZW8" class="GetActiveEnergyCommand">
+						<dhc:param value="getActiveEnergyValue" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality> -->
+			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="StateChangeNotification_ZW8" class="StateChangeNotification">
+						<dhc:param value="stateChanged" name="notificationName" />
+						<dhc:param type="State" value="newState" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="ActivePowerMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="ActivePowerMeasurementNotification_ZW8" class="ActivePowerMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActivePowerValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="W" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="ActiveEnergyMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="ActiveEnergyMeasurementNotification_ZW8" class="ActiveEnergyMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActiveEnergyValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="Wh" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+			<dhc:state class="SinglePhaseEnergyMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActiveEnergyStateValue" />
+				</dhc:statevalues>
+			</dhc:state>
+			<dhc:state class="SinglePhaseActivePowerMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActivePowerStateValue" />
+				</dhc:statevalues>
+			</dhc:state>	
+		</dhc:device>
+		
+		<dhc:device domoticSystem="ZWave" name="MeteringPowerOutlet" class="MeteringPowerOutlet" gateway="zwave-gateway">
+			<dhc:description>A "MeteringPowerOutlet" instance named MeteringPowerOutlet</dhc:description>
+            <dhc:isIn>demo_room</dhc:isIn>
+            <dhc:param value="7" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OffCommand_ZW9" name="OffCommand_ZW9" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OnCommand_ZW9" name="OnCommand_ZW9" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+			<!-- <dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetActivePowerCommand_ZW9" name="GetActivePowerCommand_ZW9" class="GetActivePowerCommand">
+						<dhc:param value="getActivePower" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetActiveEnergyValueCommand_ZW9" name="GetActiveEnergyValueCommand_ZW9" class="GetActiveEnergyCommand">
+						<dhc:param value="getActiveEnergyValue" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality> -->
+			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="StateChangeNotification_ZW9" class="StateChangeNotification">
+						<dhc:param value="stateChanged" name="notificationName" />
+						<dhc:param type="State" value="newState" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="ActivePowerMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="ActivePowerMeasurementNotification_ZW9" class="ActivePowerMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActivePowerValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="W" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="ActiveEnergyMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="ActiveEnergyMeasurementNotification_ZW9" class="ActiveEnergyMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActiveEnergyValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="Wh" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+			<dhc:state class="SinglePhaseEnergyMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActiveEnergyStateValue" />
+				</dhc:statevalues>
+			</dhc:state>
+			<dhc:state class="SinglePhaseActivePowerMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActivePowerStateValue" />
+				</dhc:statevalues>
+			</dhc:state>	
+		</dhc:device>
+	</dhc:controllables>
+</dhc:dhc>
+
