@@ -14,6 +14,9 @@
 		</dhc:building>
 	</dhc:buildingEnvironment>
 	<dhc:controllables>
+	
+	<!-- RaZberry -->
+	
 		<dhc:device domoticSystem="ZWave" name="zwave-gateway"
 			class="ZWaveGateway">
 			<dhc:description>The ZWave X gateway
@@ -22,11 +25,12 @@
 			<dhc:param value="1" name="NodeID" />
 		</dhc:device>
 		
+		<!-- Everspring AN145 -->
 		
-		<dhc:device domoticSystem="ZWave" name="Lamp_Holder" class="MainsPowerOutlet" gateway="zwave-gateway">
+		<dhc:device domoticSystem="ZWave" name="Lamp_Holder" class="SimpleLamp" gateway="zwave-gateway">
             <dhc:description>A MainsPowerOutlet instance named MainsPowerOutlet_ZW1</dhc:description>
             <dhc:isIn>demo_room</dhc:isIn>
-            <dhc:param value="6" name="NodeID" />
+            <dhc:param value="4" name="NodeID" />
             <dhc:param value="0" name="InstanceID" />
             <!-- <dhc:hasMeter>energy_power_meter_1</dhc:hasMeter> -->
             <dhc:controlFunctionality class="OnOffFunctionality">
@@ -55,11 +59,13 @@
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
+       
+       <!-- Aeotec DCS06106-ZWEU -->
         
        <dhc:device domoticSystem="ZWave" name="SmartEnergySwitch" class="MeteringPowerOutlet" gateway="zwave-gateway">
 			<dhc:description>A "MeteringPowerOutlet" instance named SmartEnergySwitch</dhc:description>
             <dhc:isIn>demo_room</dhc:isIn>
-            <dhc:param value="5" name="NodeID" />
+            <dhc:param value="2" name="NodeID" />
             <dhc:param value="0" name="InstanceID" />
             <dhc:controlFunctionality class="OnOffFunctionality">
                 <dhc:commands>
@@ -71,7 +77,7 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-			<!--  <dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command id="GetActivePowerCommand_ZW8" name="GetActivePowerCommand_ZW8" class="GetActivePowerCommand">
 						<dhc:param value="getActivePower" name="realCommandName" />
@@ -86,7 +92,7 @@
 						<dhc:param value="Measure" name="returnType" />
 					</dhc:command>
 				</dhc:commands>
-			</dhc:controlFunctionality> -->
+			</dhc:controlFunctionality>
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification name="StateChangeNotification_ZW8" class="StateChangeNotification">
@@ -133,10 +139,12 @@
 			</dhc:state>	
 		</dhc:device>
 		
+		<!-- Everspring AN158  -->
+		
 		<dhc:device domoticSystem="ZWave" name="MeteringPowerOutlet" class="MeteringPowerOutlet" gateway="zwave-gateway">
 			<dhc:description>A "MeteringPowerOutlet" instance named MeteringPowerOutlet</dhc:description>
             <dhc:isIn>demo_room</dhc:isIn>
-            <dhc:param value="7" name="NodeID" />
+            <dhc:param value="3" name="NodeID" />
             <dhc:param value="0" name="InstanceID" />
             <dhc:controlFunctionality class="OnOffFunctionality">
                 <dhc:commands>
@@ -148,7 +156,7 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-			<!-- <dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command id="GetActivePowerCommand_ZW9" name="GetActivePowerCommand_ZW9" class="GetActivePowerCommand">
 						<dhc:param value="getActivePower" name="realCommandName" />
@@ -163,7 +171,7 @@
 						<dhc:param value="Measure" name="returnType" />
 					</dhc:command>
 				</dhc:commands>
-			</dhc:controlFunctionality> -->
+			</dhc:controlFunctionality>
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification name="StateChangeNotification_ZW9" class="StateChangeNotification">
@@ -209,6 +217,289 @@
 				</dhc:statevalues>
 			</dhc:state>	
 		</dhc:device>
+		
+		<!-- Temperature and Humidity sensor ST 814 -->
+		
+		<dhc:device domoticSystem="ZWave" name="Temperature_and_Humidity_sensor" class="TemperatureAndHumiditySensor" gateway="zwave-gateway">
+			<dhc:description>A "TemperatureAndHumiditySensor" instance named TempAndHumidity_Temperature_and_Humidity_sensor</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="5" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />
+            <dhc:param value="1" name="InstanceID" />
+            <dhc:param value="2" name="InstanceID" />
+			<dhc:controlFunctionality class="TemperatureMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetTemperatureCommand_Temperature_and_Humidity_sensor" name="GetTemperatureCommand_Temperature_and_Humidity_sensor" class="GetTemperatureCommand">
+						<dhc:param value="getTemperature" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:controlFunctionality class="HumidityMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetRelativeHumidityCommand_Temperature_and_Humidity_sensor" name="GetRelativeHumidityCommand_Temperature_and_Humidity_sensor" class="GetRelativeHumidityCommand">
+						<dhc:param value="getRelativeHumidity" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="StateChangeNotification_Temperature_and_Humidity_sensor" class="StateChangeNotification">
+						<dhc:param value="stateChanged" name="notificationName" />
+						<dhc:param type="State" value="newState" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality
+				class="TemperatureMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="TemperatureMeasurementNotification_Temperature_and_Humidity_sensor" class="TemperatureMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newTemperatureValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="C" />
+						<dhc:param type="Measure" value="temperatureValue" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality
+				class="HumidityMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="HumidityMeasurementNotification_Temperature_and_Humidity_sensor" class="HumidityMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="changedRelativeHumidity" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="%" />
+						<dhc:param type="Measure" value="relativeHumidity" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:state class="TemperatureState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="TemperatureStateValue" />
+				</dhc:statevalues>
+			</dhc:state>	
+			<dhc:state class="HumidityMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="HumidityStateValue" />
+				</dhc:statevalues>
+			</dhc:state>		
+		</dhc:device>
+		
+		<!-- Motion Sensor Vision ZP3102 EU -->
+		
+		<dhc:device domoticSystem="ZWave" name="ZP3102EU" class="MovementSensor" gateway="zwave-gateway">
+            <dhc:description>A MovementSensor instance named MovementSensor_ZW6</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="6" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />       
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification name="StateChangeNotification_ZP3102EU" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality
+				class="MovementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="MovementCeasedNotification_ZP3102EU" class="MovementCeasedNotification">
+						<dhc:param value="0" name="nParams" />
+						<dhc:param value="ceasedMovement" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification name="MovementDetectedNotification_ZP3102EU" class="MovementDetectedNotification">
+						<dhc:param value="0" name="nParams" />
+						<dhc:param value="detectedMovement" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+            <dhc:state class="MovementState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="isMoving" class="MovingStateValue"/>
+                    <dhc:statevalue name="notMoving" class="NotMovingStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        
+        <!-- Aeon Labs Home Energy Meter -->
+        
+         <dhc:device domoticSystem="ZWave" name="AEON_HEM" class="SinglePhaseElectricityMeter" gateway="zwave-gateway">
+			<dhc:description>The Aeon Labs Home Energy Meter</dhc:description>
+            <dhc:isIn>demo_room</dhc:isIn>
+            <dhc:param value="7" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />
+            <dhc:param value="1" name="InstanceID" />
+			<dhc:controlFunctionality class="SinglePhaseActivePowerMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="Get1PhaseActivePowerCommand_AEON_HEM" name="Get1PhaseActivePowerCommand_AEON_HEM" class="Get1PhaseActivePowerCommand">
+						<dhc:param value="getActivePower" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:controlFunctionality class="SinglePhaseActiveEnergyMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="Get1PhaseActiveEnergyValueCommand_AEON_HEM" name="Get1PhaseActiveEnergyValueCommand_AEON_HEM" class="Get1PhaseActiveEnergyCommand">
+						<dhc:param value="getActiveEnergyValue" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="StateChangeNotification_AEON_HEM" class="StateChangeNotification">
+						<dhc:param value="stateChanged" name="notificationName" />
+						<dhc:param type="State" value="newState" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="SinglePhaseActivePowerMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="SinglePhaseActivePowerMeasurementNotification_AEON_HEM" class="SinglePhaseActivePowerMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActivePowerValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="W" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="SinglePhaseActiveEnergyMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="SinglePhaseActiveEnergyMeasurementNotification_AEON_HEM" class="SinglePhaseActiveEnergyMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActiveEnergyValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="kWh" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:state class="SinglePhaseActiveEnergyMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActiveEnergyStateValue" />
+				</dhc:statevalues>
+			</dhc:state>
+			<dhc:state class="SinglePhaseActivePowerMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActivePowerStateValue" />
+				</dhc:statevalues>
+			</dhc:state>	
+		</dhc:device>
+		
+		<!-- AEOTEC_SmartSwitch_G2 -->
+		
+		<dhc:device domoticSystem="ZWave" name="AEOTEC_SmartSwitch_G2" class="MeteringPowerOutlet" gateway="zwave-gateway">
+			<dhc:description>A "MeteringPowerOutlet" instance named SmartEnergySwitch</dhc:description>
+            <dhc:isIn>demo_room</dhc:isIn>
+            <dhc:param value="8" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OffCommand_AEOTEC_SmartSwitch_G2" name="OffCommand_AEOTEC_SmartSwitch_G2" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OnCommand_AEOTEC_SmartSwitch_G2" name="OnCommand_AEOTEC_SmartSwitch_G2" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetActivePowerCommand_AEOTEC_SmartSwitch_G2" name="GetActivePowerCommand_AEOTEC_SmartSwitch_G2" class="GetActivePowerCommand">
+						<dhc:param value="getActivePower" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+				<dhc:commands>
+					<dhc:command id="GetActiveEnergyValueCommand_AEOTEC_SmartSwitch_G2" name="GetActiveEnergyValueCommand_AEOTEC_SmartSwitch_G2" class="GetActiveEnergyCommand">
+						<dhc:param value="getActiveEnergyValue" name="realCommandName" />
+						<dhc:param value="Measure" name="returnType" />
+					</dhc:command>
+				</dhc:commands>
+			</dhc:controlFunctionality>
+			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="StateChangeNotification_AEOTEC_SmartSwitch_G2" class="StateChangeNotification">
+						<dhc:param value="stateChanged" name="notificationName" />
+						<dhc:param type="State" value="newState" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="ActivePowerMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="ActivePowerMeasurementNotification_AEOTEC_SmartSwitch_G2" class="ActivePowerMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActivePowerValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="W" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="ActiveEnergyMeasurementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="ActiveEnergyMeasurementNotification_AEOTEC_SmartSwitch_G2" class="ActiveEnergyMeasurementNotification">
+						<dhc:param value="2" name="nParams" />
+						<dhc:param value="newActiveEnergyValue" name="notificationName" />
+						<dhc:param name="unitOfMeasure" value="Wh" />
+						<dhc:param type="Measure" value="value" name="notificationParamName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+			<dhc:state class="SinglePhaseEnergyMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActiveEnergyStateValue" />
+				</dhc:statevalues>
+			</dhc:state>
+			<dhc:state class="SinglePhaseActivePowerMeasurementState">
+				<dhc:statevalues>
+					<dhc:statevalue name="" class="SinglePhaseActivePowerStateValue" />
+				</dhc:statevalues>
+			</dhc:state>	
+		</dhc:device>
+		
+		<!-- Vision ZD202EU -->
+		
+		<dhc:device domoticSystem="ZWave" name="ZW_DoorWindowSensor_Vision_ZD202EU" class="DoorSensor" gateway="zwave-gateway">
+            <dhc:description>A DoorWindowSensor instance named DoorWindowSensor_ZW5</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="9" name="NodeID" />
+            <dhc:param value="0" name="InstanceID" />       
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification name="StateChangeNotification_Vision_ZD202EU" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="OpenCloseNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification name="CloseNotification_Vision_ZD202EU" class="CloseNotification">
+						<dhc:param value="0" name="nParams" />
+						<dhc:param value="close" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification name="OpenNotification_Vision_ZD202EU" class="OpenNotification">
+						<dhc:param value="0" name="nParams" />
+						<dhc:param value="open" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+            <dhc:state class="OpenCloseState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="open" class="OpenStateValue"/>
+                    <dhc:statevalue name="close" class="CloseStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
 	</dhc:controllables>
 </dhc:dhc>
 
