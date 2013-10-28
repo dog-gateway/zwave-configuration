@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dhc:dogHomeConfiguration xmlns:dhc="http://elite.polito.it/dogHomeConfiguration">
 	<dhc:buildingEnvironment>
-		<dhc:building name="Case">
-			<dhc:flat name="ZWAVE_Demo" class="Flat">
-				<dhc:room name="demo_room" class="StorageRoom">
-					<dhc:ceiling name="ceiling" class="Ceiling" />
-					<dhc:floor name="floor" class="Floor" />
-					<dhc:wall name="wall" class="Wall" />
+		<dhc:building id="Case">
+			<dhc:flat id="ZWAVE_Demo" class="Flat">
+				<dhc:room id="demo_room" class="StorageRoom">
+					<dhc:ceiling id="ceiling" class="Ceiling" />
+					<dhc:floor id="floor" class="Floor" />
+					<dhc:wall id="wall" class="Wall" />
 				</dhc:room>
 			</dhc:flat>
 		</dhc:building>
 	</dhc:buildingEnvironment>
 	<dhc:controllables>
-		<dhc:device class="ZWaveGateway" name="zwave-gateway"
+		<dhc:device class="ZWaveGateway" id="zwave-gateway"
 			domoticSystem="ZWave">
 			<dhc:description>The ZWave X gateway
 			</dhc:description>
@@ -31,7 +31,7 @@
 				</dhc:commands>
 			</dhc:controlFunctionality>
 		</dhc:device>
-		<dhc:device class="SimpleLamp" name="Lamp_Holder"
+		<dhc:device class="LampHolder" id="Lamp_Holder"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>A MainsPowerOutlet instance named
 				MainsPowerOutlet_ZW1</dhc:description>
@@ -53,7 +53,7 @@
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="StateChangeNotification"
-						name="StateChangeNotification_Lamp_Holder">
+						id="StateChangeNotification_Lamp_Holder">
 						<dhc:param name="nParams" value="1" />
 						<dhc:param name="notificationName" value="stateChanged" />
 						<dhc:param name="notificationParamName" value="newState"
@@ -68,7 +68,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="MeteringPowerOutlet" name="SmartEnergySwitch"
+		<dhc:device class="MeteringPowerOutlet" id="SmartEnergySwitch"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>A &quot;MeteringPowerOutlet&quot; instance named
 				SmartEnergySwitch</dhc:description>
@@ -107,7 +107,7 @@
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="StateChangeNotification"
-						name="StateChangeNotification_ZW8">
+						id="StateChangeNotification_ZW8">
 						<dhc:param name="notificationName" value="stateChanged" />
 						<dhc:param name="notificationParamName" value="newState"
 							type="State" />
@@ -118,7 +118,7 @@
 				class="ActivePowerMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="ActivePowerMeasurementNotification"
-						name="ActivePowerMeasurementNotification_ZW8">
+						id="ActivePowerMeasurementNotification_ZW8">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActivePowerValue" />
 						<dhc:param name="unitOfMeasure" value="W" />
@@ -131,7 +131,7 @@
 				class="ActiveEnergyMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="ActiveEnergyMeasurementNotification"
-						name="ActiveEnergyMeasurementNotification_ZW8">
+						id="ActiveEnergyMeasurementNotification_ZW8">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActiveEnergyValue" />
 						<dhc:param name="unitOfMeasure" value="Wh" />
@@ -159,7 +159,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="MeteringPowerOutlet" name="MeteringPowerOutlet"
+		<dhc:device class="MeteringPowerOutlet" id="MeteringPowerOutlet"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>A &quot;MeteringPowerOutlet&quot; instance named
 				MeteringPowerOutlet</dhc:description>
@@ -198,7 +198,7 @@
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="StateChangeNotification"
-						name="StateChangeNotification_ZW9">
+						id="StateChangeNotification_ZW9">
 						<dhc:param name="notificationName" value="stateChanged" />
 						<dhc:param name="notificationParamName" value="newState"
 							type="State" />
@@ -209,7 +209,7 @@
 				class="ActivePowerMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="ActivePowerMeasurementNotification"
-						name="ActivePowerMeasurementNotification_ZW9">
+						id="ActivePowerMeasurementNotification_ZW9">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActivePowerValue" />
 						<dhc:param name="unitOfMeasure" value="W" />
@@ -222,7 +222,7 @@
 				class="ActiveEnergyMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="ActiveEnergyMeasurementNotification"
-						name="ActiveEnergyMeasurementNotification_ZW9">
+						id="ActiveEnergyMeasurementNotification_ZW9">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActiveEnergyValue" />
 						<dhc:param name="unitOfMeasure" value="Wh" />
@@ -250,7 +250,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="TemperatureAndHumiditySensor" name="Temperature_and_Humidity_sensor"
+		<dhc:device class="TemperatureAndHumiditySensor" id="Temperature_and_Humidity_sensor"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>A &quot;TemperatureAndHumiditySensor&quot; instance
 				named TempAndHumidity_Temperature_and_Humidity_sensor
@@ -282,7 +282,7 @@
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="StateChangeNotification"
-						name="StateChangeNotification_Temperature_and_Humidity_sensor">
+						id="StateChangeNotification_Temperature_and_Humidity_sensor">
 						<dhc:param name="notificationName" value="stateChanged" />
 						<dhc:param name="notificationParamName" value="newState"
 							type="State" />
@@ -293,7 +293,7 @@
 				class="TemperatureMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="TemperatureMeasurementNotification"
-						name="TemperatureMeasurementNotification_Temperature_and_Humidity_sensor">
+						id="TemperatureMeasurementNotification_Temperature_and_Humidity_sensor">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newTemperatureValue" />
 						<dhc:param name="unitOfMeasure" value="C" />
@@ -306,7 +306,7 @@
 				class="HumidityMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="HumidityMeasurementNotification"
-						name="HumidityMeasurementNotification_Temperature_and_Humidity_sensor">
+						id="HumidityMeasurementNotification_Temperature_and_Humidity_sensor">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="changedRelativeHumidity" />
 						<dhc:param name="unitOfMeasure" value="%" />
@@ -326,7 +326,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="MovementSensor" name="ZP3102EU"
+		<dhc:device class="MovementSensor" id="ZP3102EU"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>A MovementSensor instance named MovementSensor_ZW6
 			</dhc:description>
@@ -336,7 +336,7 @@
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="StateChangeNotification"
-						name="StateChangeNotification_ZP3102EU">
+						id="StateChangeNotification_ZP3102EU">
 						<dhc:param name="nParams" value="1" />
 						<dhc:param name="notificationName" value="stateChanged" />
 						<dhc:param name="notificationParamName" value="newState"
@@ -347,12 +347,12 @@
 			<dhc:notificationFunctionality class="MovementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="MovementCeasedNotification"
-						name="MovementCeasedNotification_ZP3102EU">
+						id="MovementCeasedNotification_ZP3102EU">
 						<dhc:param name="nParams" value="0" />
 						<dhc:param name="notificationName" value="ceasedMovement" />
 					</dhc:notification>
 					<dhc:notification class="MovementDetectedNotification"
-						name="MovementDetectedNotification_ZP3102EU">
+						id="MovementDetectedNotification_ZP3102EU">
 						<dhc:param name="nParams" value="0" />
 						<dhc:param name="notificationName" value="detectedMovement" />
 					</dhc:notification>
@@ -365,7 +365,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="SinglePhaseElectricityMeter" name="AEON_HEM"
+		<dhc:device class="SinglePhaseElectricityMeter" id="AEON_HEM"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>The Aeon Labs Home Energy Meter</dhc:description>
 			<dhc:isIn>demo_room</dhc:isIn>
@@ -395,7 +395,7 @@
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="StateChangeNotification"
-						name="StateChangeNotification_AEON_HEM">
+						id="StateChangeNotification_AEON_HEM">
 						<dhc:param name="notificationName" value="stateChanged" />
 						<dhc:param name="notificationParamName" value="newState"
 							type="State" />
@@ -406,7 +406,7 @@
 				class="SinglePhaseActivePowerMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="SinglePhaseActivePowerMeasurementNotification"
-						name="SinglePhaseActivePowerMeasurementNotification_AEON_HEM">
+						id="SinglePhaseActivePowerMeasurementNotification_AEON_HEM">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActivePowerValue" />
 						<dhc:param name="unitOfMeasure" value="W" />
@@ -419,7 +419,7 @@
 				class="SinglePhaseActiveEnergyMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="SinglePhaseActiveEnergyMeasurementNotification"
-						name="SinglePhaseActiveEnergyMeasurementNotification_AEON_HEM">
+						id="SinglePhaseActiveEnergyMeasurementNotification_AEON_HEM">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActiveEnergyValue" />
 						<dhc:param name="unitOfMeasure" value="kWh" />
@@ -441,7 +441,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="MeteringPowerOutlet" name="AEOTEC_SmartSwitch_G2"
+		<dhc:device class="MeteringPowerOutlet" id="AEOTEC_SmartSwitch_G2"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>A &quot;MeteringPowerOutlet&quot; instance named
 				SmartEnergySwitch</dhc:description>
@@ -481,7 +481,7 @@
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="StateChangeNotification"
-						name="StateChangeNotification_AEOTEC_SmartSwitch_G2">
+						id="StateChangeNotification_AEOTEC_SmartSwitch_G2">
 						<dhc:param name="notificationName" value="stateChanged" />
 						<dhc:param name="notificationParamName" value="newState"
 							type="State" />
@@ -533,7 +533,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="DoorSensor" name="ZW_DoorWindowSensor_Vision_ZD202EU"
+		<dhc:device class="DoorSensor" id="ZW_DoorWindowSensor_Vision_ZD202EU"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>A DoorWindowSensor instance named
 				DoorWindowSensor_ZW5</dhc:description>
@@ -572,7 +572,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="MeteringPowerOutlet" name="MeteringPowerOutlet_20"
+		<dhc:device class="MeteringPowerOutlet" id="MeteringPowerOutlet_20"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>New Device of type MeteringPowerOutlet
 			</dhc:description>
@@ -659,7 +659,7 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
-		<dhc:device class="ThermostaticRadiatorValve" name="ThermostaticRadiatorValve_1"
+		<dhc:device class="ThermostaticRadiatorValve" id="ThermostaticRadiatorValve_1"
 			domoticSystem="ZWave" gateway="zwave-gateway">
 			<dhc:description>Danfoss Thermostatic Radiator Valve 
 			</dhc:description>
