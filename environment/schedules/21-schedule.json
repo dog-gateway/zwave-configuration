@@ -3,12 +3,12 @@
 		"weekDay":"1",
 		"switchPoints":[
 		{
-			"timeAt":"2013-10-22T16:45:00.000Z",
+			"timeAt":"2013-10-22T16:45:00.000+02:00",
 			"desiredTemperature":"19.5 C"
 		}
 		,
 		{
-			"timeAt":"2013-10-22T17:45:00.000Z",
+			"timeAt":"2013-10-22T17:45:00.000+02:00",
 			"desiredTemperature":"20.5 C"
 		}
 		]
@@ -18,12 +18,12 @@
 		"weekDay":"2",
 		"switchPoints":[
 		{
-			"timeAt":"2013-10-22T16:45:00.000Z",
+			"timeAt":"2013-10-22T16:45:00.000+02:00",
 			"desiredTemperature":"19.5 C"
 		}
 		,
 		{
-			"timeAt":"2013-10-22T17:45:00.000Z",
+			"timeAt":"2013-10-22T17:45:00.000+02:00",
 			"desiredTemperature":"20.5 C"
 		}
 		]
@@ -33,12 +33,12 @@
 		"weekDay":"3",
 		"switchPoints":[
 		{
-			"timeAt":"2013-10-22T16:45:00.000Z",
-			"desiredTemperature":"19.5 C"
+			"timeAt":"2013-10-22T14:33:00.000+02:00",
+			"desiredTemperature":"25.5 C"
 		}
 		,
 		{
-			"timeAt":"2013-10-22T17:45:00.000Z",
+			"timeAt":"2013-10-22T14:34:00.000+02:00",
 			"desiredTemperature":"20.5 C"
 		}
 		]
@@ -48,12 +48,12 @@
 		"weekDay":"4",
 		"switchPoints":[
 		{
-			"timeAt":"2013-10-22T16:45:00.000Z",
+			"timeAt":"2013-10-22T16:45:00.000+02:00",
 			"desiredTemperature":"19.5 C"
 		}
 		,
 		{
-			"timeAt":"2013-10-22T17:45:00.000Z",
+			"timeAt":"2013-10-22T17:45:00.000+02:00",
 			"desiredTemperature":"20.5 C"
 		}
 		]
@@ -63,12 +63,12 @@
 		"weekDay":"5",
 		"switchPoints":[
 		{
-			"timeAt":"2013-10-22T16:45:00.000Z",
+			"timeAt":"2013-10-22T16:45:00.000+02:00",
 			"desiredTemperature":"19.5 C"
 		}
 		,
 		{
-			"timeAt":"2013-10-22T17:45:00.000Z",
+			"timeAt":"2013-10-22T17:45:00.000+02:00",
 			"desiredTemperature":"20.5 C"
 		}
 		]
@@ -78,12 +78,12 @@
 		"weekDay":"6",
 		"switchPoints":[
 		{
-			"timeAt":"2013-10-22T16:45:00.000Z",
+			"timeAt":"2013-10-22T16:45:00.000+02:00",
 			"desiredTemperature":"19.5 C"
 		}
 		,
 		{
-			"timeAt":"2013-10-22T17:45:00.000Z",
+			"timeAt":"2013-10-22T17:45:00.000+02:00",
 			"desiredTemperature":"20.5 C"
 		}
 		]
@@ -93,12 +93,12 @@
 		"weekDay":"7",
 		"switchPoints":[
 		{
-			"timeAt":"2013-10-22T16:45:00.000Z",
+			"timeAt":"2013-10-22T16:45:00.000+02:00",
 			"desiredTemperature":"19.5 C"
 		}
 		,
 		{
-			"timeAt":"2013-10-22T17:45:00.000Z",
+			"timeAt":"2013-10-22T17:45:00.000+02:00",
 			"desiredTemperature":"20.5 C"
 		}
 		]
