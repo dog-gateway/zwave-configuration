@@ -751,5 +751,98 @@
 				</dhc:statevalues>
 			</dhc:state>
 		</dhc:device>
+		<dhc:device domoticSystem="ZWave" id="ZL_7421_EU_In_Wall_Switch" class="OnOffOutput"
+	gateway="zwave-gateway">
+	<dhc:description>Vision In-Wall Switch</dhc:description>
+	<dhc:isIn></dhc:isIn>
+	<dhc:param value="24" name="NodeID" type="network"/>
+	<dhc:param value="0" name="InstanceID" type="network"/>
+	<!-- <dhc:hasMeter>$meter</dhc:hasMeter> -->
+	<dhc:controlFunctionality class="OnOffFunctionality">
+		<dhc:commands>
+			<dhc:command id="OffCommand_ZL_7421_EU_In_Wall_Switch" name="OffCommand_ZL_7421_EU_In_Wall_Switch"
+				class="OffCommand">
+				<dhc:param value="off" name="realCommandName" />
+			</dhc:command>
+			<dhc:command id="OnCommand_ZL_7421_EU_In_Wall_Switch" name="OnCommand_ZL_7421_EU_In_Wall_Switch"
+				class="OnCommand">
+				<dhc:param value="on" name="realCommandName" />
+			</dhc:command>
+		</dhc:commands>
+	</dhc:controlFunctionality>
+	<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+		<dhc:notifications>
+			<dhc:notification id="StateChangeNotification_ZL_7421_EU_In_Wall_Switch"
+				class="StateChangeNotification">
+				<dhc:param value="1" name="nParams" />
+				<dhc:param value="stateChanged" name="notificationName" />
+				<dhc:param type="State" value="newState" name="notificationParamName" />
+			</dhc:notification>
+		</dhc:notifications>
+	</dhc:notificationFunctionality>
+	<dhc:state class="OnOffState">
+		<dhc:statevalues>
+			<dhc:statevalue name="off" class="OffStateValue" />
+			<dhc:statevalue name="on" class="OnStateValue" />
+		</dhc:statevalues>
+	</dhc:state>
+</dhc:device>
+<dhc:device domoticSystem="ZWave" id="AEOTEC_Micro_Motor_Controller" class="LevelControllableOutput"
+	gateway="zwave-gateway">
+<dhc:description>Shutter Actuator Micro Motor Controller</dhc:description>
+	<dhc:isIn></dhc:isIn>
+	<dhc:param value="25" name="NodeID" type="network"/>
+	<dhc:param value="0" name="InstanceID" type="network"/>
+	<!-- <dhc:hasMeter>$meter</dhc:hasMeter> -->
+	<dhc:controlFunctionality class="OnOffFunctionality">
+		<dhc:commands>
+			<dhc:command id="OffCommand_AEOTEC_Micro_Motor_Controller" name="OffCommand_AEOTEC_Micro_Motor_Controller"
+				class="OffCommand">
+				<dhc:param value="off" name="realCommandName" />
+			</dhc:command>
+			<dhc:command id="OnCommand_AEOTEC_Micro_Motor_Controller" name="OnCommand_AEOTEC_Micro_Motor_Controller"
+				class="OnCommand">
+				<dhc:param value="on" name="realCommandName" />
+			</dhc:command>
+		</dhc:commands>
+	</dhc:controlFunctionality>
+	<dhc:controlFunctionality class="LevelControlFunctionality">
+		<dhc:commands>
+			<dhc:command id="SetCommand_AEOTEC_Micro_Motor_Controller" name="OffCommand_AEOTEC_Micro_Motor_Controller"
+				class="SetCommand">
+				<dhc:param value="set" name="realCommandName" />
+				<dhc:param value="1" name="nParams" />
+				<dhc:param value="value" name="commandParamName" type="Object"/>
+			</dhc:command>
+			<dhc:command id="StepUpCommand_AEOTEC_Micro_Motor_Controller" name="OnCommand_AEOTEC_Micro_Motor_Controller"
+				class="StepUpCommand">
+				<dhc:param value="stepDown" name="realCommandName" />
+			</dhc:command>
+			<dhc:command id="StepDownCommand_AEOTEC_Micro_Motor_Controller" name="OnCommand_AEOTEC_Micro_Motor_Controller"
+				class="StepDownCommand">
+				<dhc:param value="stepDown" name="realCommandName" />
+			</dhc:command>
+		</dhc:commands>
+	</dhc:controlFunctionality>
+	<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+		<dhc:notifications>
+			<dhc:notification id="StateChangeNotification_ZL_7421_EU_In_Wall_Switch"
+				class="StateChangeNotification">
+				<dhc:param value="1" name="nParams" />
+				<dhc:param value="stateChanged" name="notificationName" />
+				<dhc:param type="State" value="newState" name="notificationParamName" />
+			</dhc:notification>
+		</dhc:notifications>
+	</dhc:notificationFunctionality>
+	<dhc:state class="OnOffState">
+		<dhc:statevalues>
+			<dhc:statevalue name="off" class="OffStateValue" />
+			<dhc:statevalue name="on" class="OnStateValue" />
+		</dhc:statevalues>
+	</dhc:state>
+	<dhc:state class="LevelState">
+		<dhc:statevalue name="level" class="LevelStateValue" />
+	</dhc:state>
+</dhc:device>
 	</dhc:controllables>
 </dhc:dogHomeConfiguration>
