@@ -839,7 +839,7 @@
 			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command class="GetActivePowerCommand"
-						name="GetActivePowerCommand_MeteringPowerOutlet_20" id="GetActivePowerCommand_MeteringPowerOutlet_20">
+						name="GetActivePowerCommand_AEOTEC_Micro_Motor_Controller" id="GetActivePowerCommand_AEOTEC_Micro_Motor_Controller">
 						<dhc:param name="realCommandName" value="getActivePower" />
 						<dhc:param name="returnType" value="Measure" />
 					</dhc:command>
@@ -848,13 +848,13 @@
 			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command class="GetActiveEnergyCommand"
-						name="GetActiveEnergyValueCommand_MeteringPowerOutlet_20" id="GetActiveEnergyValueCommand_MeteringPowerOutlet_20" />
+						name="GetActiveEnergyValueCommand_AEOTEC_Micro_Motor_Controller" id="GetActiveEnergyValueCommand_AEOTEC_Micro_Motor_Controller" />
 				</dhc:commands>
 			</dhc:controlFunctionality>
 			<dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification
-						id="StateChangeNotification_ZL_7421_EU_In_Wall_Switch" class="StateChangeNotification">
+						id="StateChangeNotification_AEOTEC_Micro_Motor_Controller" class="StateChangeNotification">
 						<dhc:param value="1" name="nParams" />
 						<dhc:param value="stateChanged" name="notificationName" />
 						<dhc:param type="State" value="newState" name="notificationParamName" />
@@ -865,7 +865,7 @@
 				class="ActivePowerMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="ActivePowerMeasurementNotification"
-						name="ActivePowerMeasurementNotification_MeteringPowerOutlet_20">
+						name="ActivePowerMeasurementNotification_AEOTEC_Micro_Motor_Controller">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActivePowerValue" />
 						<dhc:param name="unitOfMeasure" value="W" />
@@ -878,7 +878,7 @@
 				class="ActiveEnergyMeasurementNotificationFunctionality">
 				<dhc:notifications>
 					<dhc:notification class="ActiveEnergyMeasurementNotification"
-						name="ActiveEnergyMeasurementNotification_MeteringPowerOutlet_20">
+						name="ActiveEnergyMeasurementNotification_AEOTEC_Micro_Motor_Controller">
 						<dhc:param name="nParams" value="2" />
 						<dhc:param name="notificationName" value="newActiveEnergyValue" />
 						<dhc:param name="unitOfMeasure" value="Wh" />
