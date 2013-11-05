@@ -97,7 +97,7 @@
 					</dhc:command>
 				</dhc:commands>
 			</dhc:controlFunctionality>
-			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+			<dhc:controlFunctionality class="ActiveEnergyMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command class="GetActiveEnergyCommand" name="GetActiveEnergyValueCommand_ZW8"
 						id="GetActiveEnergyValueCommand_ZW8">
@@ -189,7 +189,7 @@
 					</dhc:command>
 				</dhc:commands>
 			</dhc:controlFunctionality>
-			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+			<dhc:controlFunctionality class="ActiveEnergyMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command class="GetActiveEnergyCommand" name="GetActiveEnergyValueCommand_ZW9"
 						id="GetActiveEnergyValueCommand_ZW9">
@@ -473,7 +473,7 @@
 					</dhc:command>
 				</dhc:commands>
 			</dhc:controlFunctionality>
-			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+			<dhc:controlFunctionality class="ActiveEnergyMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command class="GetActiveEnergyCommand"
 						name="GetActiveEnergyValueCommand_AEOTEC_SmartSwitch_G2" id="GetActiveEnergyValueCommand_AEOTEC_SmartSwitch_G2">
@@ -603,7 +603,7 @@
 					</dhc:command>
 				</dhc:commands>
 			</dhc:controlFunctionality>
-			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+			<dhc:controlFunctionality class="ActiveEnergyMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command class="GetActiveEnergyCommand"
 						name="GetActiveEnergyValueCommand_MeteringPowerOutlet_20" id="GetActiveEnergyValueCommand_MeteringPowerOutlet_20" />
@@ -845,7 +845,7 @@
 					</dhc:command>
 				</dhc:commands>
 			</dhc:controlFunctionality>
-			<dhc:controlFunctionality class="ActivePowerMeasurementFunctionality">
+			<dhc:controlFunctionality class="ActiveEnergyMeasurementFunctionality">
 				<dhc:commands>
 					<dhc:command class="GetActiveEnergyCommand"
 						name="GetActiveEnergyValueCommand_AEOTEC_Micro_Motor_Controller" id="GetActiveEnergyValueCommand_AEOTEC_Micro_Motor_Controller" />
