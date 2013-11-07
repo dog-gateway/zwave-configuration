@@ -758,5 +758,82 @@
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
+        <dhc:device class="ThermostaticRadiatorValve" id="ThermostaticRadiatorValve_32" domoticSystem="ZWave" gateway="zwave-gateway">
+            <dhc:description>New Device of type ThermostaticRadiatorValve</dhc:description>
+            <dhc:isIn></dhc:isIn>
+            <dhc:param name="NodeID" value="32" type="network"/>
+            <dhc:param name="InstanceID" value="0" type="network"/>
+            <dhc:controlFunctionality class="ClimateScheduleFunctionality">
+                <dhc:commands>
+                    <dhc:command class="SetClimateScheduleCommand" name="SetClimateScheduleCommand_ThermostaticRadiatorValve_32" id="SetClimateScheduleCommand_ThermostaticRadiatorValve_32">
+                        <dhc:param name="realCommandName" value="setDaySchedule"/>
+                        <dhc:param name="nParams" value="2"/>
+                        <dhc:param name="commandParamName" value="switchPoints" type="Object[]"/>
+                        <dhc:param name="commandParamName" value="weekDay" type="Integer"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="ClimateScheduleQueryFunctionality">
+                <dhc:commands>
+                    <dhc:command class="GetClimateScheduleCommand" name="GetClimateScheduleCommand_ThermostaticRadiatorValve_32" id="GetClimateScheduleCommand_ThermostaticRadiatorValve_32">
+                        <dhc:param name="realCommandName" value="getDaySchedule"/>
+                        <dhc:param name="nParams" value="1"/>
+                        <dhc:param name="commandParamName" value="weekDay" type="Integer"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="ThermostatControlFunctionality">
+                <dhc:commands>
+                    <dhc:command class="CoolCommand" name="CoolCommand_ThermostaticRadiatorValve_32" id="CoolCommand_ThermostaticRadiatorValve_32">
+                        <dhc:param name="realCommandName" value="cool"/>
+                    </dhc:command>
+                    <dhc:command class="HeatCommand" name="HeatCommand_ThermostaticRadiatorValve_32" id="HeatCommand_ThermostaticRadiatorValve_32">
+                        <dhc:param name="realCommandName" value="heat"/>
+                    </dhc:command>
+                    <dhc:command class="StopHeatingCoolingCommand" name="StopHeatingCoolingCommand_ThermostaticRadiatorValve_32" id="StopHeatingCoolingCommand_ThermostaticRadiatorValve_32">
+                        <dhc:param name="realCommandName" value="stopHeatingOrCooling"/>
+                    </dhc:command>
+                    <dhc:command class="SetDesiredTemperatureCommand" name="SetDesiredTemperatureCommand_ThermostaticRadiatorValve_32" id="SetDesiredTemperatureCommand_ThermostaticRadiatorValve_32">
+                        <dhc:param name="realCommandName" value="setTemperatureAt"/>
+                        <dhc:param name="nParams" value="1"/>
+                        <dhc:param name="commandParamName" value="temperature" type="Measure"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="ThermostatQueryFunctionality">
+                <dhc:commands>
+                    <dhc:command class="GetCommand" name="GetCommand_ThermostaticRadiatorValve_32" id="GetCommand_ThermostaticRadiatorValve_32">
+                        <dhc:param name="realCommandName" value="getState"/>
+                        <dhc:param name="nParams" value="1"/>
+                        <dhc:param name="returnType" value="DeviceStatus"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="StateChangeNotification" id="StateChangeNotification_ThermostaticRadiatorValve_32">
+                        <dhc:param name="nParams" value="1"/>
+                        <dhc:param name="notificationName" value="stateChanged"/>
+                        <dhc:param name="notificationParamName" value="newState" type="State"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="ClimateScheduleState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
+                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
+                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
+                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
+                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
+                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
+                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
+                </dhc:statevalues>
+            </dhc:state>
+            <dhc:state class="TemperatureState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="TemperatureStateValue" name=""/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
     </dhc:controllables>
 </dhc:dogHomeConfiguration>
