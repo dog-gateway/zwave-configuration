@@ -836,17 +836,17 @@
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
-        <dhc:device class="ThreePhaseElectricityMeter" id="ThreePhaseElectricityMeter_38" domoticSystem="ZWave" gateway="zwave-gateway">
+        <dhc:device class="ThreePhaseElectricityMeter" id="ThreePhaseElectricityMeter_56" domoticSystem="ZWave" gateway="zwave-gateway">
             <dhc:description>New Device of type ThreePhaseElectricityMeter</dhc:description>
             <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="38" type="network"/>
+            <dhc:param name="NodeID" value="56" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
             <dhc:param name="InstanceID" value="1" type="network"/>
             <dhc:param name="InstanceID" value="2" type="network"/>
             <dhc:param name="InstanceID" value="3" type="network"/>
             <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="StateChangeNotification" id="StateChangeNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="StateChangeNotification" id="StateChangeNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="notificationName" value="stateChanged"/>
                         <dhc:param name="notificationParamName" value="newState" type="State"/>
                     </dhc:notification>
@@ -854,21 +854,21 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="ThreePhaseVoltageMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="ThreePhaseLNVoltageMeasurementNotification" id="L1NVoltageMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseLNVoltageMeasurementNotification" id="L1NVoltageMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newPhaseNeutralVoltageValue"/>
                         <dhc:param name="phaseID" value="L1N"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseLNVoltageMeasurementNotification" id="L2NVoltageMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseLNVoltageMeasurementNotification" id="L2NVoltageMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newPhaseNeutralVoltageValue"/>
                         <dhc:param name="phaseID" value="L2N"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseLNVoltageMeasurementNotification" id="L3NVoltageMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseLNVoltageMeasurementNotification" id="L3NVoltageMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newPhaseNeutralVoltageValue"/>
                         <dhc:param name="phaseID" value="L3N"/>
@@ -879,7 +879,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="FrequencyMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="FrequencyMeasurementNotification" id="FrequencyMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="FrequencyMeasurementNotification" id="FrequencyMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="notificationName" value="newFrequencyValue"/>
                         <dhc:param name="notificationParamName" value="frequency" type="Measure"/>
                     </dhc:notification>
@@ -887,7 +887,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="SinglePhaseReactiveEnergyMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="SinglePhaseReactiveEnergyMeasurementNotification" id="TotalReactiveEnergyMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="SinglePhaseReactiveEnergyMeasurementNotification" id="TotalReactiveEnergyMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="notificationName" value="newReactiveEnergyValue"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
@@ -895,7 +895,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="SinglePhaseActiveEnergyMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="SinglePhaseActiveEnergyMeasurementNotification" id="TotalActiveEnergyMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="SinglePhaseActiveEnergyMeasurementNotification" id="TotalActiveEnergyMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="notificationName" value="newActiveEnergyValue"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
@@ -903,21 +903,21 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="ThreePhaseCurrentMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="ThreePhaseCurrentMeasurementNotification" id="L1CurrentMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseCurrentMeasurementNotification" id="L1CurrentMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newCurrentValue"/>
                         <dhc:param name="phaseID" value="L1"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseCurrentMeasurementNotification" id="L2CurrentMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseCurrentMeasurementNotification" id="L2CurrentMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newCurrentValue"/>
                         <dhc:param name="phaseID" value="L2"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseCurrentMeasurementNotification" id="L3CurrentMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseCurrentMeasurementNotification" id="L3CurrentMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newCurrentValue"/>
                         <dhc:param name="phaseID" value="L3"/>
@@ -928,21 +928,21 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="ThreePhaseApparentPowerMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="ThreePhaseApparentPowerMeasurementNotification" id="L1ApparentPowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseApparentPowerMeasurementNotification" id="L1ApparentPowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newApparentPowerValue"/>
                         <dhc:param name="phaseID" value="L1"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseApparentPowerMeasurementNotification" id="L2ApparentPowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseApparentPowerMeasurementNotification" id="L2ApparentPowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newApparentPowerValue"/>
                         <dhc:param name="phaseID" value="L2"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseApparentPowerMeasurementNotification" id="L3ApparentPowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseApparentPowerMeasurementNotification" id="L3ApparentPowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newApparentPowerValue"/>
                         <dhc:param name="phaseID" value="L3"/>
@@ -953,7 +953,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="PowerFactorMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="PowerFactorMeasurementNotification" id="PowerFactorMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="PowerFactorMeasurementNotification" id="PowerFactorMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="notificationName" value="newPowerFactorValue"/>
                         <dhc:param name="notificationParamName" value="powerfactor" type="Measure"/>
                     </dhc:notification>
@@ -961,21 +961,21 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="ThreePhaseReactivePowerMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="ThreePhaseReactivePowerMeasurementNotification" id="L1ReactivePowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseReactivePowerMeasurementNotification" id="L1ReactivePowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newReactivePowerValue"/>
                         <dhc:param name="phaseID" value="L1"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseReactivePowerMeasurementNotification" id="L2ReactivePowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseReactivePowerMeasurementNotification" id="L2ReactivePowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newReactivePowerValue"/>
                         <dhc:param name="phaseID" value="L2"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseReactivePowerMeasurementNotification" id="L3ReactivePowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseReactivePowerMeasurementNotification" id="L3ReactivePowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newReactivePowerValue"/>
                         <dhc:param name="phaseID" value="L3"/>
@@ -986,21 +986,21 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="ThreePhaseActivePowerMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="ThreePhaseActivePowerMeasurementNotification" id="L1ActivePowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseActivePowerMeasurementNotification" id="L1ActivePowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newActivePowerValue"/>
                         <dhc:param name="phaseID" value="L1"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseActivePowerMeasurementNotification" id="L2ActivePowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseActivePowerMeasurementNotification" id="L2ActivePowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newActivePowerValue"/>
                         <dhc:param name="phaseID" value="L2"/>
                         <dhc:param name="notificationParamName" value="phaseID" type="String"/>
                         <dhc:param name="notificationParamName" value="value" type="Measure"/>
                     </dhc:notification>
-                    <dhc:notification class="ThreePhaseActivePowerMeasurementNotification" id="L3ActivePowerMeasurementNotificationThreePhaseElectricityMeter_38">
+                    <dhc:notification class="ThreePhaseActivePowerMeasurementNotification" id="L3ActivePowerMeasurementNotificationThreePhaseElectricityMeter_56">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newActivePowerValue"/>
                         <dhc:param name="phaseID" value="L3"/>
