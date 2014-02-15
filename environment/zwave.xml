@@ -425,7 +425,11 @@
                     <dhc:statevalue class="OnStateValue" name="on"/>
                 </dhc:statevalues>
             </dhc:state>
-            <dhc:state class="LevelState"/>
+            <dhc:state class="LevelState">
+            	<dhc:statevalues>
+                    <dhc:statevalue class="LevelStateValue" name="level"/>
+                </dhc:statevalues>
+            </dhc:state>
             <dhc:state class="SinglePhaseEnergyMeasurementState">
                 <dhc:statevalues>
                     <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name=""/>
