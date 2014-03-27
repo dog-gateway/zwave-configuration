@@ -345,7 +345,8 @@
             </dhc:state>
         </dhc:device>
         <dhc:device class="EnergyAndPowerMeteringLevelControllableOutput" id="EnergyAndPowerMeteringLevelControllableOutput_74" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type EnergyAndPowerMeteringLevelControllableOutput</dhc:description>
+            <dhc:description>New Device of type
+				EnergyAndPowerMeteringLevelControllableOutput</dhc:description>
             <dhc:isIn></dhc:isIn>
             <dhc:param name="NodeID" value="74" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
@@ -425,7 +426,11 @@
                     <dhc:statevalue class="OnStateValue" name="on"/>
                 </dhc:statevalues>
             </dhc:state>
-            <dhc:state class="LevelState"/>
+            <dhc:state class="LevelState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="LevelStateValue" name="level"/>
+                </dhc:statevalues>
+            </dhc:state>
             <dhc:state class="SinglePhaseEnergyMeasurementState">
                 <dhc:statevalues>
                     <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name=""/>
@@ -438,7 +443,8 @@
             </dhc:state>
         </dhc:device>
         <dhc:device class="MeteringPowerOutlet" id="MeteringPowerOutlet_75" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type MeteringPowerOutlet</dhc:description>
+            <dhc:description>New Device of type MeteringPowerOutlet
+			</dhc:description>
             <dhc:isIn></dhc:isIn>
             <dhc:param name="NodeID" value="75" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
@@ -515,7 +521,8 @@
             </dhc:state>
         </dhc:device>
         <dhc:device class="TemperatureAndHumiditySensor" id="TemperatureAndHumiditySensor_76" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type TemperatureAndHumiditySensor</dhc:description>
+            <dhc:description>New Device of type TemperatureAndHumiditySensor
+			</dhc:description>
             <dhc:isIn></dhc:isIn>
             <dhc:param name="NodeID" value="76" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
@@ -573,6 +580,141 @@
             <dhc:state class="HumidityMeasurementState">
                 <dhc:statevalues>
                     <dhc:statevalue class="HumidityStateValue" name=""/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device class="MovementSensor" id="MovementSensor_78" domoticSystem="ZWave" gateway="zwave-gateway">
+            <dhc:description>New Device of type MovementSensor</dhc:description>
+            <dhc:isIn></dhc:isIn>
+            <dhc:param name="NodeID" value="78" type="network"/>
+            <dhc:param name="InstanceID" value="0" type="network"/>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="StateChangeNotification" id="StateChangeNotification_MovementSensor_78">
+                        <dhc:param name="nParams" value="1"/>
+                        <dhc:param name="notificationName" value="stateChanged"/>
+                        <dhc:param name="notificationParamName" value="newState" type="State"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="MovementNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="MovementCeasedNotification" id="MovementCeasedNotification_MovementSensor_78">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="ceasedMovement"/>
+                    </dhc:notification>
+                    <dhc:notification class="MovementDetectedNotification" id="MovementDetectedNotification_MovementSensor_78">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="detectedMovement"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="MovementState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="MovingStateValue" name="isMoving"/>
+                    <dhc:statevalue class="NotMovingStateValue" name="notMoving"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device class="QuadSensor" id="QuadSensor_87" domoticSystem="ZWave" gateway="zwave-gateway">
+            <dhc:description>New Device of type QuadSensor</dhc:description>
+            <dhc:isIn></dhc:isIn>
+            <dhc:param name="NodeID" value="87" type="network"/>
+            <dhc:param name="InstanceID" value="0" type="network"/>
+            <dhc:controlFunctionality class="TemperatureMeasurementFunctionality">
+                <dhc:commands>
+                    <dhc:command class="GetTemperatureCommand" name="GetTemperatureCommand_QuadSensor_87" id="GetTemperatureCommand_QuadSensor_87">
+                        <dhc:param name="realCommandName" value="getTemperature"/>
+                        <dhc:param name="returnType" value="Measure"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="HumidityMeasurementFunctionality">
+                <dhc:commands>
+                    <dhc:command class="GetRelativeHumidityCommand" name="GetRelativeHumidityCommand_QuadSensor_87" id="GetRelativeHumidityCommand_QuadSensor_87">
+                        <dhc:param name="realCommandName" value="getRelativeHumidity"/>
+                        <dhc:param name="returnType" value="Measure"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="LightSensingFunctionality">
+                <dhc:commands>
+                    <dhc:command class="GetLuminanceCommand" name="GetLuminanceCommand_QuadSensor_87" id="GetLuminanceCommand_QuadSensor_87">
+                        <dhc:param name="realCommandName" value="getLuminance"/>
+                        <dhc:param name="returnType" value="Measure"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="StateChangeNotification" id="StateChangeNotification_QuadSensor_87">
+                        <dhc:param name="nParams" value="1"/>
+                        <dhc:param name="notificationName" value="stateChanged"/>
+                        <dhc:param name="notificationParamName" value="newState" type="State"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="MovementNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="MovementCeasedNotification" id="MovementCeasedNotification_QuadSensor_87">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="ceasedMovement"/>
+                    </dhc:notification>
+                    <dhc:notification class="MovementDetectedNotification" id="MovementDetectedNotification_QuadSensor_87">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="detectedMovement"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="TemperatureMeasurementNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="TemperatureMeasurementNotification" id="TemperatureMeasurementNotification_QuadSensor_87">
+                        <dhc:param name="nParams" value="2"/>
+                        <dhc:param name="notificationName" value="newTemperatureValue"/>
+                        <dhc:param name="unitOfMeasure" value="C"/>
+                        <dhc:param name="notificationParamName" value="temperatureValue" type="Measure"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="HumidityMeasurementNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="HumidityMeasurementNotification" id="HumidityMeasurementNotification_QuadSensor_87">
+                        <dhc:param name="nParams" value="2"/>
+                        <dhc:param name="notificationName" value="changedRelativeHumidity"/>
+                        <dhc:param name="unitOfMeasure" value="%"/>
+                        <dhc:param name="notificationParamName" value="relativeHumidity" type="Measure"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="LuminosityNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="LuminosityMeasurementNotification" id="LuminosityMeasurementNotification_QuadSensor_87">
+                        <dhc:param name="nParams" value="2"/>
+                        <dhc:param name="notificationName" value="newLuminosityValue"/>
+                        <dhc:param name="unitOfMeasure" value="Lux"/>
+                        <dhc:param name="notificationParamName" value="luminosityValue" type="Measure"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="MovementState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="MovingStateValue" name="isMoving"/>
+                    <dhc:statevalue class="NotMovingStateValue" name="notMoving"/>
+                </dhc:statevalues>
+            </dhc:state>
+            <dhc:state class="TemperatureState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="TemperatureStateValue" name=""/>
+                </dhc:statevalues>
+            </dhc:state>
+            <dhc:state class="HumidityMeasurementState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="HumidityStateValue" name=""/>
+                </dhc:statevalues>
+            </dhc:state>
+            <dhc:state class="LightIntensityState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="LevelStateValue" name=""/>
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
