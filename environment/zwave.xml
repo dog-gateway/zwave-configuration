@@ -427,7 +427,11 @@
                 </dhc:statevalues>
             </dhc:state>
             <dhc:state class="LevelState">
+<<<<<<< HEAD
                 <dhc:statevalues>
+=======
+            	<dhc:statevalues>
+>>>>>>> branch 'master' of http://git.elite.polito.it/dog-configurations/zwave.git
                     <dhc:statevalue class="LevelStateValue" name="level"/>
                 </dhc:statevalues>
             </dhc:state>
