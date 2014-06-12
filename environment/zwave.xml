@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dhc:dogHomeConfiguration xmlns:dhc="http://elite.polito.it/dogHomeConfiguration">
     <dhc:buildingEnvironment>
-        <dhc:building id="Case">
-            <dhc:flat id="ZWAVE_Demo" class="Flat">
-                <dhc:room id="demo_room" class="StorageRoom">
+        <dhc:building id="Politecnico">
+            <dhc:flat id="DAUIN" class="Flat">
+                <dhc:room id="Office" class="StorageRoom">
                     <dhc:ceiling id="ceiling" class="Ceiling"/>
                     <dhc:floor id="floor" class="Floor"/>
                     <dhc:wall id="wall" class="Wall"/>
@@ -15,7 +15,7 @@
         <dhc:device class="ZWaveGateway" id="zwave-gateway" domoticSystem="ZWave">
             <dhc:description>The ZWave X gateway
 			</dhc:description>
-            <dhc:isIn>demo_room</dhc:isIn>
+            <dhc:isIn>Office</dhc:isIn>
             <dhc:param name="NodeID" value="1" type="network"/>
             <dhc:controlFunctionality class="AssociateFunctionality">
                 <dhc:commands>
@@ -28,63 +28,52 @@
                 </dhc:commands>
             </dhc:controlFunctionality>
             <dhc:notificationFunctionality class="AssociationNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="AssociatingDeviceNotification_zwave-gateway" class="AssociatingDeviceNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="associating" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="DisassociatingDeviceNotification_zwave-gateway" class="DisassociatingDeviceNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="disassociating" name="notificationName" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
+                <dhc:notifications>
+                    <dhc:notification class="AssociatingDeviceNotification" id="AssociatingDeviceNotification_zwave-gateway">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="associating"/>
+                    </dhc:notification>
+                    <dhc:notification class="DisassociatingDeviceNotification" id="DisassociatingDeviceNotification_zwave-gateway">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="disassociating"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
         </dhc:device>
-        <dhc:device class="LampHolder" id="Lamp_Holder" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>A MainsPowerOutlet instance named
-				MainsPowerOutlet_ZW1
-			</dhc:description>
-            <dhc:isIn>demo_room</dhc:isIn>
-            <dhc:param name="NodeID" value="4" type="network"/>
+        <dhc:device class="DoorSensor" id="DoorSensor_89" domoticSystem="ZWave" gateway="zwave-gateway">
+            <dhc:description>New Device of type DoorSensor</dhc:description>
+            <dhc:isIn>Office</dhc:isIn>
+            <dhc:param name="NodeID" value="89" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
-            <dhc:controlFunctionality class="OnOffFunctionality">
-                <dhc:commands>
-                    <dhc:command class="OffCommand" name="OffCommand_Lamp_Holder" id="OffCommand_Lamp_Holder">
-                        <dhc:param name="realCommandName" value="off"/>
-                    </dhc:command>
-                    <dhc:command class="OnCommand" name="OnCommand_Lamp_Holder" id="OnCommand_Lamp_Holder">
-                        <dhc:param name="realCommandName" value="on"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-			<dhc:notificationFunctionality class="OnOffNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="OnNotification_Lamp_Holder" class="OnNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="on" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="OffNotification_Lamp_Holder" class="OffNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="off" name="notificationName" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
-            <dhc:state class="OnOffState">
+            <dhc:notificationFunctionality class="OpenCloseNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="CloseNotification" id="CloseNotification_DoorSensor_89">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="close"/>
+                    </dhc:notification>
+                    <dhc:notification class="OpenNotification">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="open"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OpenCloseState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="OffStateValue" name="off"/>
-                    <dhc:statevalue class="OnStateValue" name="on"/>
+                    <dhc:statevalue class="OpenStateValue" name="open"/>
+                    <dhc:statevalue class="CloseStateValue" name="close"/>
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
-        <dhc:device class="SinglePhaseElectricityMeter" id="AEON_HEM" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>The Aeon Labs Home Energy Meter</dhc:description>
-            <dhc:isIn>demo_room</dhc:isIn>
+        
+        <dhc:device class="SinglePhaseElectricityMeter" id="SinglePhaseElectricityMeter_7" domoticSystem="ZWave" gateway="zwave-gateway">
+            <dhc:description>New Device of type SinglePhaseElectricityMeter</dhc:description>
+            <dhc:isIn>Office</dhc:isIn>
             <dhc:param name="NodeID" value="7" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
             <dhc:param name="InstanceID" value="1" type="network"/>
             <dhc:controlFunctionality class="SinglePhaseActivePowerMeasurementFunctionality">
                 <dhc:commands>
-                    <dhc:command class="Get1PhaseActivePowerCommand" name="Get1PhaseActivePowerCommand_AEON_HEM" id="Get1PhaseActivePowerCommand_AEON_HEM">
+                    <dhc:command class="Get1PhaseActivePowerCommand" name="Get1PhaseActivePowerCommand_SinglePhaseElectricityMeter_7" id="Get1PhaseActivePowerCommand_SinglePhaseElectricityMeter_7">
                         <dhc:param name="realCommandName" value="getActivePower"/>
                         <dhc:param name="returnType" value="Measure"/>
                     </dhc:command>
@@ -92,7 +81,7 @@
             </dhc:controlFunctionality>
             <dhc:controlFunctionality class="SinglePhaseActiveEnergyMeasurementFunctionality">
                 <dhc:commands>
-                    <dhc:command class="Get1PhaseActiveEnergyCommand" name="Get1PhaseActiveEnergyValueCommand_AEON_HEM" id="Get1PhaseActiveEnergyValueCommand_AEON_HEM">
+                    <dhc:command class="Get1PhaseActiveEnergyCommand" name="Get1PhaseActiveEnergyValueCommand_SinglePhaseElectricityMeter_7" id="Get1PhaseActiveEnergyValueCommand_SinglePhaseElectricityMeter_7">
                         <dhc:param name="realCommandName" value="getActiveEnergyValue"/>
                         <dhc:param name="returnType" value="Measure"/>
                     </dhc:command>
@@ -100,7 +89,7 @@
             </dhc:controlFunctionality>
             <dhc:notificationFunctionality class="SinglePhaseActivePowerMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="SinglePhaseActivePowerMeasurementNotification" id="SinglePhaseActivePowerMeasurementNotification_AEON_HEM">
+                    <dhc:notification class="SinglePhaseActivePowerMeasurementNotification" id="SinglePhaseActivePowerMeasurementNotification_SinglePhaseElectricityMeter_7">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newActivePowerValue"/>
                         <dhc:param name="unitOfMeasure" value="W"/>
@@ -110,7 +99,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="SinglePhaseActiveEnergyMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="SinglePhaseActiveEnergyMeasurementNotification" id="SinglePhaseActiveEnergyMeasurementNotification_AEON_HEM">
+                    <dhc:notification class="SinglePhaseActiveEnergyMeasurementNotification" id="SinglePhaseActiveEnergyMeasurementNotification_SinglePhaseElectricityMeter_7">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newActiveEnergyValue"/>
                         <dhc:param name="unitOfMeasure" value="kWh"/>
@@ -129,266 +118,10 @@
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
-        <dhc:device class="ThermostaticRadiatorValve" id="ThermostaticRadiatorValve_1" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>Danfoss Thermostatic Radiator Valve
-			</dhc:description>
-            <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="21" type="network"/>
-            <dhc:param name="InstanceID" value="0" type="network"/>
-            <dhc:controlFunctionality class="ClimateScheduleFunctionality">
-                <dhc:commands>
-                    <dhc:command class="SetClimateScheduleCommand" name="SetClimateScheduleCommand_ThermostaticRadiatorValve_1" id="SetClimateScheduleCommand_ThermostaticRadiatorValve_1">
-                        <dhc:param name="realCommandName" value="setDaySchedule"/>
-                        <dhc:param name="nParams" value="2"/>
-                        <dhc:param name="commandParamName" value="switchPoints" type="Object[]"/>
-                        <dhc:param name="commandParamName" value="weekDay" type="Integer"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="ClimateScheduleQueryFunctionality">
-                <dhc:commands>
-                    <dhc:command class="GetClimateScheduleCommand" name="GetClimateScheduleCommand_ThermostaticRadiatorValve_1" id="GetClimateScheduleCommand_ThermostaticRadiatorValve_1">
-                        <dhc:param name="realCommandName" value="getDaySchedule"/>
-                        <dhc:param name="nParams" value="1"/>
-                        <dhc:param name="commandParamName" value="weekDay" type="Integer"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="ThermostatControlFunctionality">
-                <dhc:commands>
-                    <dhc:command class="CoolCommand" name="CoolCommand_ThermostaticRadiatorValve_1" id="CoolCommand_ThermostaticRadiatorValve_1">
-                        <dhc:param name="realCommandName" value="cool"/>
-                    </dhc:command>
-                    <dhc:command class="HeatCommand" name="HeatCommand_ThermostaticRadiatorValve_1" id="HeatCommand_ThermostaticRadiatorValve_1">
-                        <dhc:param name="realCommandName" value="heat"/>
-                    </dhc:command>
-                    <dhc:command class="StopHeatingCoolingCommand" name="StopHeatingCoolingCommand_ThermostaticRadiatorValve_1" id="StopHeatingCoolingCommand_ThermostaticRadiatorValve_1">
-                        <dhc:param name="realCommandName" value="stopHeatingOrCooling"/>
-                    </dhc:command>
-                    <dhc:command class="SetDesiredTemperatureCommand" name="SetDesiredTemperatureCommand_ThermostaticRadiatorValve_1" id="SetDesiredTemperatureCommand_ThermostaticRadiatorValve_1">
-                        <dhc:param name="realCommandName" value="setTemperatureAt"/>
-                        <dhc:param name="nParams" value="1"/>
-                        <dhc:param name="commandParamName" value="temperature" type="Measure"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="ThermostatQueryFunctionality">
-                <dhc:commands>
-                    <dhc:command class="GetCommand" name="GetCommand_ThermostaticRadiatorValve_1" id="GetCommand_ThermostaticRadiatorValve_1">
-                        <dhc:param name="realCommandName" value="getState"/>
-                        <dhc:param name="nParams" value="1"/>
-                        <dhc:param name="returnType" value="DeviceStatus"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="ClimateScheduleNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="DailyClimateScheduleNotification_ThermostaticRadiatorValve_1" class="DailyClimateScheduleNotification">
-						<dhc:param name="nParams" value="1"/>
-						<dhc:param value="changedDailyClimateSchedule" name="notificationName" />
-						<dhc:param value="daySchedule" name="notificationParamName" type="DailyClimateSchedule" />
-					</dhc:notification>
-					<dhc:notification id="WeeklyClimateScheduleNotification_ThermostaticRadiatorValve_1" class="WeeklyClimateScheduleNotification">
-						<dhc:param name="nParams" value="1"/>
-						<dhc:param value="changedWeeklyClimateSchedule" name="notificationName" />
-						<dhc:param value="dailySchedules" name="notificationParamName" type="DailyClimateSchedule[]" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
-			<dhc:notificationFunctionality class="ThermostatNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="ChangedDesiredTemperatureNotification_ThermostaticRadiatorValve_1" class="ChangedDesiredTemperatureNotification">
-						<dhc:param name="nParams" value="1"/>
-						<dhc:param value="changedDesiredTemperatureSetting" name="notificationName" />
-						<dhc:param value="newTemperatureValue" name="notificationParamName" type="Measure" />
-					</dhc:notification>
-					<dhc:notification id="CoolNotification_ThermostaticRadiatorValve_1" class="CoolNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="cool" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="HeatNotification_ThermostaticRadiatorValve_1" class="HeatNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="heat" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="StopHeatingCoolingNotification_ThermostaticRadiatorValve_1" class="StopHeatingCoolingNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="stopHeatingOrCooling" name="notificationName" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
-            <dhc:state class="ClimateScheduleState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                </dhc:statevalues>
-            </dhc:state>
-            <dhc:state class="TemperatureState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="TemperatureStateValue" name=""/>
-                </dhc:statevalues>
-            </dhc:state>
-        </dhc:device>
-        <dhc:device class="DoorSensor" id="ZW_DoorWindowSensor_DoorSensor_29" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type DoorSensor</dhc:description>
-            <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="29" type="network"/>
-            <dhc:param name="InstanceID" value="0" type="network"/>
-            <dhc:notificationFunctionality class="OpenCloseNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification class="CloseNotification" id="CloseNotification_DoorSensor_29">
-                        <dhc:param name="nParams" value="0"/>
-                        <dhc:param name="notificationName" value="close"/>
-                    </dhc:notification>
-                    <dhc:notification class="OpenNotification">
-                        <dhc:param name="nParams" value="0"/>
-                        <dhc:param name="notificationName" value="open"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
-            <dhc:state class="OpenCloseState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="OpenStateValue" name="open"/>
-                    <dhc:statevalue class="CloseStateValue" name="close"/>
-                </dhc:statevalues>
-            </dhc:state>
-        </dhc:device>
-        <dhc:device class="MovementSensor" id="MovementSensor_30" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type MovementSensor</dhc:description>
-            <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="30" type="network"/>
-            <dhc:param name="InstanceID" value="0" type="network"/>
-            <dhc:notificationFunctionality class="MovementNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification class="MovementCeasedNotification" id="MovementCeasedNotification_MovementSensor_30">
-                        <dhc:param name="nParams" value="0"/>
-                        <dhc:param name="notificationName" value="ceasedMovement"/>
-                    </dhc:notification>
-                    <dhc:notification class="MovementDetectedNotification" id="MovementDetectedNotification_MovementSensor_30">
-                        <dhc:param name="nParams" value="0"/>
-                        <dhc:param name="notificationName" value="detectedMovement"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
-            <dhc:state class="MovementState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="MovingStateValue" name="isMoving"/>
-                    <dhc:statevalue class="NotMovingStateValue" name="notMoving"/>
-                </dhc:statevalues>
-            </dhc:state>
-        </dhc:device>
-        <dhc:device class="ThermostaticRadiatorValve" id="ThermostaticRadiatorValve_32" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type ThermostaticRadiatorValve
-			</dhc:description>
-            <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="32" type="network"/>
-            <dhc:param name="InstanceID" value="0" type="network"/>
-            <dhc:controlFunctionality class="ClimateScheduleFunctionality">
-                <dhc:commands>
-                    <dhc:command class="SetClimateScheduleCommand" name="SetClimateScheduleCommand_ThermostaticRadiatorValve_32" id="SetClimateScheduleCommand_ThermostaticRadiatorValve_32">
-                        <dhc:param name="realCommandName" value="setDaySchedule"/>
-                        <dhc:param name="nParams" value="2"/>
-                        <dhc:param name="commandParamName" value="switchPoints" type="Object[]"/>
-                        <dhc:param name="commandParamName" value="weekDay" type="Integer"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="ClimateScheduleQueryFunctionality">
-                <dhc:commands>
-                    <dhc:command class="GetClimateScheduleCommand" name="GetClimateScheduleCommand_ThermostaticRadiatorValve_32" id="GetClimateScheduleCommand_ThermostaticRadiatorValve_32">
-                        <dhc:param name="realCommandName" value="getDaySchedule"/>
-                        <dhc:param name="nParams" value="1"/>
-                        <dhc:param name="commandParamName" value="weekDay" type="Integer"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="ThermostatControlFunctionality">
-                <dhc:commands>
-                    <dhc:command class="CoolCommand" name="CoolCommand_ThermostaticRadiatorValve_32" id="CoolCommand_ThermostaticRadiatorValve_32">
-                        <dhc:param name="realCommandName" value="cool"/>
-                    </dhc:command>
-                    <dhc:command class="HeatCommand" name="HeatCommand_ThermostaticRadiatorValve_32" id="HeatCommand_ThermostaticRadiatorValve_32">
-                        <dhc:param name="realCommandName" value="heat"/>
-                    </dhc:command>
-                    <dhc:command class="StopHeatingCoolingCommand" name="StopHeatingCoolingCommand_ThermostaticRadiatorValve_32" id="StopHeatingCoolingCommand_ThermostaticRadiatorValve_32">
-                        <dhc:param name="realCommandName" value="stopHeatingOrCooling"/>
-                    </dhc:command>
-                    <dhc:command class="SetDesiredTemperatureCommand" name="SetDesiredTemperatureCommand_ThermostaticRadiatorValve_32" id="SetDesiredTemperatureCommand_ThermostaticRadiatorValve_32">
-                        <dhc:param name="realCommandName" value="setTemperatureAt"/>
-                        <dhc:param name="nParams" value="1"/>
-                        <dhc:param name="commandParamName" value="temperature" type="Measure"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="ThermostatQueryFunctionality">
-                <dhc:commands>
-                    <dhc:command class="GetCommand" name="GetCommand_ThermostaticRadiatorValve_32" id="GetCommand_ThermostaticRadiatorValve_32">
-                        <dhc:param name="realCommandName" value="getState"/>
-                        <dhc:param name="nParams" value="1"/>
-                        <dhc:param name="returnType" value="DeviceStatus"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="ClimateScheduleNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="DailyClimateScheduleNotification_ThermostaticRadiatorValve_32" class="DailyClimateScheduleNotification">
-						 <dhc:param name="nParams" value="1"/>
-						<dhc:param value="changedDailyClimateSchedule" name="notificationName" />
-						<dhc:param value="daySchedule" name="notificationParamName" type="DailyClimateSchedule" />
-					</dhc:notification>
-					<dhc:notification id="WeeklyClimateScheduleNotification_ThermostaticRadiatorValve_32" class="WeeklyClimateScheduleNotification">
-						 <dhc:param name="nParams" value="1"/>
-						<dhc:param value="changedWeeklyClimateSchedule" name="notificationName" />
-						<dhc:param value="dailySchedules" name="notificationParamName" type="DailyClimateSchedule[]" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
-			<dhc:notificationFunctionality class="ThermostatNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="ChangedDesiredTemperatureNotification_ThermostaticRadiatorValve_32" class="ChangedDesiredTemperatureNotification">
-						 <dhc:param name="nParams" value="1"/>
-						<dhc:param value="changedDesiredTemperatureSetting" name="notificationName" />
-						<dhc:param value="newTemperatureValue" name="notificationParamName" type="Measure" />
-					</dhc:notification>
-					<dhc:notification id="CoolNotification_ThermostaticRadiatorValve_32" class="CoolNotification">
-						 <dhc:param name="nParams" value="0"/>
-						<dhc:param value="cool" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="HeatNotification_ThermostaticRadiatorValve_32" class="HeatNotification">
-						 <dhc:param name="nParams" value="0"/>
-						<dhc:param value="heat" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="StopHeatingCoolingNotification_ThermostaticRadiatorValve_32" class="StopHeatingCoolingNotification">
-						 <dhc:param name="nParams" value="0"/>
-						<dhc:param value="stopHeatingOrCooling" name="notificationName" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
-            <dhc:state class="ClimateScheduleState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                    <dhc:statevalue class="ClimateScheduleStateValue" name=""/>
-                </dhc:statevalues>
-            </dhc:state>
-            <dhc:state class="TemperatureState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="TemperatureStateValue" name=""/>
-                </dhc:statevalues>
-            </dhc:state>
-        </dhc:device>
+        
         <dhc:device class="EnergyAndPowerMeteringLevelControllableOutput" id="EnergyAndPowerMeteringLevelControllableOutput_74" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type
-				EnergyAndPowerMeteringLevelControllableOutput</dhc:description>
-            <dhc:isIn></dhc:isIn>
+            <dhc:description>New Device of type EnergyAndPowerMeteringLevelControllableOutput</dhc:description>
+            <dhc:isIn>Office</dhc:isIn>
             <dhc:param name="NodeID" value="74" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
             <dhc:controlFunctionality class="OnOffFunctionality">
@@ -409,7 +142,7 @@
                         <dhc:param name="commandParamName" value="value" type="Object"/>
                     </dhc:command>
                     <dhc:command class="StepUpCommand" name="OnCommand_EnergyAndPowerMeteringLevelControllableOutput_74" id="StepUpCommand_EnergyAndPowerMeteringLevelControllableOutput_74">
-                        <dhc:param name="realCommandName" value="stepDown"/>
+                        <dhc:param name="realCommandName" value="stepUp"/>
                     </dhc:command>
                     <dhc:command class="StepDownCommand" name="OnCommand_EnergyAndPowerMeteringLevelControllableOutput_74" id="StepDownCommand_EnergyAndPowerMeteringLevelControllableOutput_74">
                         <dhc:param name="realCommandName" value="stepDown"/>
@@ -433,17 +166,34 @@
                 </dhc:commands>
             </dhc:controlFunctionality>
             <dhc:notificationFunctionality class="OnOffNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="OnNotification_EnergyAndPowerMeteringLevelControllableOutput_74" class="OnNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="on" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="OffNotification_EnergyAndPowerMeteringLevelControllableOutput_74" class="OffNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="off" name="notificationName" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
+                <dhc:notifications>
+                    <dhc:notification class="OnNotification" id="OnNotification_EnergyAndPowerMeteringLevelControllableOutput_74">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="on"/>
+                    </dhc:notification>
+                    <dhc:notification class="OffNotification" id="OffNotification_EnergyAndPowerMeteringLevelControllableOutput_74">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="off"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="SimpleLevelNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="LevelControlNotification" id="LevelControlNotification_EnergyAndPowerMeteringLevelControllableOutput_74">
+                        <dhc:param name="nParams" value="1"/>
+                        <dhc:param name="notificationName" value="changedLevel"/>
+                        <dhc:param name="notificationParamName" value="newLevel" type="Measure"/>
+                    </dhc:notification>
+                    <dhc:notification class="LevelStepUpNotification" id="LevelStepUpNotification_EnergyAndPowerMeteringLevelControllableOutput_74">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="stepUp"/>
+                    </dhc:notification>
+                    <dhc:notification class="LevelStepDownNotification" id="LevelStepDownNotification_EnergyAndPowerMeteringLevelControllableOutput_74">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="stepDown"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="SinglePhaseActivePowerMeasurementNotificationFunctionality">
                 <dhc:notifications>
                     <dhc:notification class="SinglePhaseActivePowerMeasurementNotification">
@@ -487,9 +237,8 @@
             </dhc:state>
         </dhc:device>
         <dhc:device class="MeteringPowerOutlet" id="MeteringPowerOutlet_75" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type MeteringPowerOutlet
-			</dhc:description>
-            <dhc:isIn></dhc:isIn>
+            <dhc:description>New Device of type MeteringPowerOutlet</dhc:description>
+            <dhc:isIn>Office</dhc:isIn>
             <dhc:param name="NodeID" value="75" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
             <dhc:controlFunctionality class="OnOffFunctionality">
@@ -519,17 +268,17 @@
                 </dhc:commands>
             </dhc:controlFunctionality>
             <dhc:notificationFunctionality class="OnOffNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification id="OnNotification_MeteringPowerOutlet_75" class="OnNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="on" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification id="OffNotification_MeteringPowerOutlet_75" class="OffNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="off" name="notificationName" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality> 
+                <dhc:notifications>
+                    <dhc:notification class="OnNotification" id="OnNotification_MeteringPowerOutlet_75">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="on"/>
+                    </dhc:notification>
+                    <dhc:notification class="OffNotification" id="OffNotification_MeteringPowerOutlet_75">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="off"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="SinglePhaseActivePowerMeasurementNotificationFunctionality">
                 <dhc:notifications>
                     <dhc:notification class="SinglePhaseActivePowerMeasurementNotification">
@@ -567,10 +316,33 @@
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
+        <dhc:device class="MovementSensor" id="MovementSensor_78" domoticSystem="ZWave" gateway="zwave-gateway">
+            <dhc:description>New Device of type MovementSensor</dhc:description>
+            <dhc:isIn>Office</dhc:isIn>
+            <dhc:param name="NodeID" value="78" type="network"/>
+            <dhc:param name="InstanceID" value="0" type="network"/>
+            <dhc:notificationFunctionality class="MovementNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification class="MovementCeasedNotification" id="MovementCeasedNotification_MovementSensor_78">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="ceasedMovement"/>
+                    </dhc:notification>
+                    <dhc:notification class="MovementDetectedNotification" id="MovementDetectedNotification_MovementSensor_78">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="detectedMovement"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="MovementState">
+                <dhc:statevalues>
+                    <dhc:statevalue class="MovingStateValue" name="isMoving"/>
+                    <dhc:statevalue class="NotMovingStateValue" name="notMoving"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
         <dhc:device class="TemperatureAndHumiditySensor" id="TemperatureAndHumiditySensor_76" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type TemperatureAndHumiditySensor
-			</dhc:description>
-            <dhc:isIn></dhc:isIn>
+            <dhc:description>New Device of type TemperatureAndHumiditySensor</dhc:description>
+            <dhc:isIn>Office</dhc:isIn>
             <dhc:param name="NodeID" value="76" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
             <dhc:param name="InstanceID" value="1" type="network"/>
@@ -622,90 +394,30 @@
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
-        <dhc:device class="MovementSensor" id="MovementSensor_78" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type MovementSensor</dhc:description>
-            <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="78" type="network"/>
-            <dhc:param name="InstanceID" value="0" type="network"/>
-            <dhc:notificationFunctionality class="MovementNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification class="MovementCeasedNotification" id="MovementCeasedNotification_MovementSensor_78">
-                        <dhc:param name="nParams" value="0"/>
-                        <dhc:param name="notificationName" value="ceasedMovement"/>
-                    </dhc:notification>
-                    <dhc:notification class="MovementDetectedNotification" id="MovementDetectedNotification_MovementSensor_78">
-                        <dhc:param name="nParams" value="0"/>
-                        <dhc:param name="notificationName" value="detectedMovement"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
-            <dhc:state class="MovementState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="MovingStateValue" name="isMoving"/>
-                    <dhc:statevalue class="NotMovingStateValue" name="notMoving"/>
-                </dhc:statevalues>
-            </dhc:state>
-        </dhc:device>
-        <dhc:device class="MeteringPowerOutlet" id="MeteringPowerOutlet_80" domoticSystem="ZWave" gateway="zwave-gateway">
-            <dhc:description>New Device of type MeteringPowerOutlet</dhc:description>
-            <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="80" type="network"/>
+        <dhc:device class="LampHolder" id="LampHolder_4" domoticSystem="ZWave" gateway="zwave-gateway">
+            <dhc:description>New Device of type LampHolder</dhc:description>
+            <dhc:isIn>Office</dhc:isIn>
+            <dhc:param name="NodeID" value="4" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
             <dhc:controlFunctionality class="OnOffFunctionality">
                 <dhc:commands>
-                    <dhc:command class="OffCommand" name="OffCommand_MeteringPowerOutlet_80" id="OffCommand_MeteringPowerOutlet_80">
+                    <dhc:command class="OffCommand" name="OffCommand_LampHolder_4" id="OffCommand_LampHolder_4">
                         <dhc:param name="realCommandName" value="off"/>
                     </dhc:command>
-                    <dhc:command class="OnCommand" name="OnCommand_MeteringPowerOutlet_80" id="OnCommand_MeteringPowerOutlet_80">
+                    <dhc:command class="OnCommand" name="OnCommand_LampHolder_4" id="OnCommand_LampHolder_4">
                         <dhc:param name="realCommandName" value="on"/>
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="SinglePhaseActivePowerMeasurementFunctionality">
-                <dhc:commands>
-                    <dhc:command class="Get1PhaseActivePowerCommand" name="Get1PhaseActivePowerCommand_MeteringPowerOutlet_80" id="Get1PhaseActivePowerCommand_MeteringPowerOutlet_80">
-                        <dhc:param name="realCommandName" value="getActivePower"/>
-                        <dhc:param name="returnType" value="Measure"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-            <dhc:controlFunctionality class="SinglePhaseActiveEnergyMeasurementFunctionality">
-                <dhc:commands>
-                    <dhc:command class="Get1PhaseActiveEnergyCommand" name="Get1PhaseActiveEnergyCommand_MeteringPowerOutlet_80" id="Get1PhaseActiveEnergyCommand_MeteringPowerOutlet_80">
-                        <dhc:param name="realCommandName" value="getActiveEnergyValue"/>
-                        <dhc:param name="returnType" value="Measure"/>
-                    </dhc:command>
-                </dhc:commands>
-            </dhc:controlFunctionality>
-			<dhc:notificationFunctionality class="OnOffNotificationFunctionality">
-				<dhc:notifications>
-					<dhc:notification class="OnNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="on" name="notificationName" />
-					</dhc:notification>
-					<dhc:notification class="OffNotification">
-						<dhc:param name="nParams" value="0"/>
-						<dhc:param value="off" name="notificationName" />
-					</dhc:notification>
-				</dhc:notifications>
-			</dhc:notificationFunctionality>
-            <dhc:notificationFunctionality class="SinglePhaseActivePowerMeasurementNotificationFunctionality">
+            <dhc:notificationFunctionality class="OnOffNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="SinglePhaseActivePowerMeasurementNotification">
-                        <dhc:param name="nParams" value="2"/>
-                        <dhc:param name="notificationName" value="newActivePowerValue"/>
-                        <dhc:param name="unitOfMeasure" value="W"/>
-                        <dhc:param name="notificationParamName" value="value" type="Measure"/>
+                    <dhc:notification class="OnNotification" id="OnNotification_LampHolder_4">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="on"/>
                     </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
-            <dhc:notificationFunctionality class="SinglePhaseActiveEnergyMeasurementNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification class="SinglePhaseActiveEnergyMeasurementNotification">
-                        <dhc:param name="nParams" value="2"/>
-                        <dhc:param name="notificationName" value="newActiveEnergyValue"/>
-                        <dhc:param name="unitOfMeasure" value="Wh"/>
-                        <dhc:param name="notificationParamName" value="value" type="Measure"/>
+                    <dhc:notification class="OffNotification" id="OffNotification_LampHolder_4">
+                        <dhc:param name="nParams" value="0"/>
+                        <dhc:param name="notificationName" value="off"/>
                     </dhc:notification>
                 </dhc:notifications>
             </dhc:notificationFunctionality>
@@ -715,25 +427,15 @@
                     <dhc:statevalue class="OnStateValue" name="on"/>
                 </dhc:statevalues>
             </dhc:state>
-            <dhc:state class="SinglePhaseEnergyMeasurementState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name=""/>
-                </dhc:statevalues>
-            </dhc:state>
-            <dhc:state class="SinglePhaseActivePowerMeasurementState">
-                <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActivePowerStateValue" name=""/>
-                </dhc:statevalues>
-            </dhc:state>
         </dhc:device>
-	<dhc:device class="QuadSensor" id="QuadSensor_87" domoticSystem="ZWave" gateway="zwave-gateway">
+        <dhc:device class="QuadSensor" id="QuadSensor_91" domoticSystem="ZWave" gateway="zwave-gateway">
             <dhc:description>New Device of type QuadSensor</dhc:description>
-            <dhc:isIn></dhc:isIn>
-            <dhc:param name="NodeID" value="87" type="network"/>
+            <dhc:isIn>Office</dhc:isIn>
+            <dhc:param name="NodeID" value="91" type="network"/>
             <dhc:param name="InstanceID" value="0" type="network"/>
             <dhc:controlFunctionality class="TemperatureMeasurementFunctionality">
                 <dhc:commands>
-                    <dhc:command class="GetTemperatureCommand" name="GetTemperatureCommand_QuadSensor_87" id="GetTemperatureCommand_QuadSensor_87">
+                    <dhc:command class="GetTemperatureCommand" name="GetTemperatureCommand_QuadSensor_91" id="GetTemperatureCommand_QuadSensor_91">
                         <dhc:param name="realCommandName" value="getTemperature"/>
                         <dhc:param name="returnType" value="Measure"/>
                     </dhc:command>
@@ -741,7 +443,7 @@
             </dhc:controlFunctionality>
             <dhc:controlFunctionality class="HumidityMeasurementFunctionality">
                 <dhc:commands>
-                    <dhc:command class="GetRelativeHumidityCommand" name="GetRelativeHumidityCommand_QuadSensor_87" id="GetRelativeHumidityCommand_QuadSensor_87">
+                    <dhc:command class="GetRelativeHumidityCommand" name="GetRelativeHumidityCommand_QuadSensor_91" id="GetRelativeHumidityCommand_QuadSensor_91">
                         <dhc:param name="realCommandName" value="getRelativeHumidity"/>
                         <dhc:param name="returnType" value="Measure"/>
                     </dhc:command>
@@ -749,7 +451,7 @@
             </dhc:controlFunctionality>
             <dhc:controlFunctionality class="LightSensingFunctionality">
                 <dhc:commands>
-                    <dhc:command class="GetLuminanceCommand" name="GetLuminanceCommand_QuadSensor_87" id="GetLuminanceCommand_QuadSensor_87">
+                    <dhc:command class="GetLuminanceCommand" name="GetLuminanceCommand_QuadSensor_91" id="GetLuminanceCommand_QuadSensor_91">
                         <dhc:param name="realCommandName" value="getLuminance"/>
                         <dhc:param name="returnType" value="Measure"/>
                     </dhc:command>
@@ -757,11 +459,11 @@
             </dhc:controlFunctionality>
             <dhc:notificationFunctionality class="MovementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="MovementCeasedNotification" id="MovementCeasedNotification_QuadSensor_87">
+                    <dhc:notification class="MovementCeasedNotification" id="MovementCeasedNotification_QuadSensor_91">
                         <dhc:param name="nParams" value="0"/>
                         <dhc:param name="notificationName" value="ceasedMovement"/>
                     </dhc:notification>
-                    <dhc:notification class="MovementDetectedNotification" id="MovementDetectedNotification_QuadSensor_87">
+                    <dhc:notification class="MovementDetectedNotification" id="MovementDetectedNotification_QuadSensor_91">
                         <dhc:param name="nParams" value="0"/>
                         <dhc:param name="notificationName" value="detectedMovement"/>
                     </dhc:notification>
@@ -769,7 +471,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="TemperatureMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="TemperatureMeasurementNotification" id="TemperatureMeasurementNotification_QuadSensor_87">
+                    <dhc:notification class="TemperatureMeasurementNotification" id="TemperatureMeasurementNotification_QuadSensor_91">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newTemperatureValue"/>
                         <dhc:param name="unitOfMeasure" value="C"/>
@@ -779,7 +481,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="HumidityMeasurementNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="HumidityMeasurementNotification" id="HumidityMeasurementNotification_QuadSensor_87">
+                    <dhc:notification class="HumidityMeasurementNotification" id="HumidityMeasurementNotification_QuadSensor_91">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="changedRelativeHumidity"/>
                         <dhc:param name="unitOfMeasure" value="%"/>
@@ -789,7 +491,7 @@
             </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="LuminosityNotificationFunctionality">
                 <dhc:notifications>
-                    <dhc:notification class="LuminosityMeasurementNotification" id="LuminosityMeasurementNotification_QuadSensor_87">
+                    <dhc:notification class="LuminosityMeasurementNotification" id="LuminosityMeasurementNotification_QuadSensor_91">
                         <dhc:param name="nParams" value="2"/>
                         <dhc:param name="notificationName" value="newLuminosityValue"/>
                         <dhc:param name="unitOfMeasure" value="Lux"/>
