@@ -109,12 +109,16 @@
             </dhc:notificationFunctionality>
             <dhc:state class="SinglePhaseActiveEnergyMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name=""/>
+                    <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="kWh"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
             <dhc:state class="SinglePhaseActivePowerMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActivePowerStateValue" name=""/>
+                    <dhc:statevalue class="SinglePhaseActivePowerStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="W"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
@@ -227,12 +231,16 @@
             </dhc:state>
             <dhc:state class="SinglePhaseEnergyMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name=""/>
+                    <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="Wh"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
             <dhc:state class="SinglePhaseActivePowerMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActivePowerStateValue" name=""/>
+                    <dhc:statevalue class="SinglePhaseActivePowerStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="W"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
@@ -307,12 +315,16 @@
             </dhc:state>
             <dhc:state class="SinglePhaseEnergyMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name=""/>
+                    <dhc:statevalue class="SinglePhaseActiveEnergyStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="Wh"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
             <dhc:state class="SinglePhaseActivePowerMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="SinglePhaseActivePowerStateValue" name=""/>
+                    <dhc:statevalue class="SinglePhaseActivePowerStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="W"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
@@ -385,12 +397,16 @@
             </dhc:notificationFunctionality>
             <dhc:state class="TemperatureState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="TemperatureStateValue" name=""/>
+                    <dhc:statevalue class="TemperatureStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="C"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
             <dhc:state class="HumidityMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="HumidityStateValue" name=""/>
+                    <dhc:statevalue class="HumidityStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="%"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
@@ -507,17 +523,23 @@
             </dhc:state>
             <dhc:state class="TemperatureState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="TemperatureStateValue" name=""/>
+                    <dhc:statevalue class="TemperatureStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="C"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
             <dhc:state class="HumidityMeasurementState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="HumidityStateValue" name=""/>
+                    <dhc:statevalue class="HumidityStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="%"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
             <dhc:state class="LightIntensityState">
                 <dhc:statevalues>
-                    <dhc:statevalue class="LevelStateValue" name=""/>
+                    <dhc:statevalue class="LevelStateValue" name="" >
+                    	<dhc:param name="measuredIn" value="Lux"/>
+                    </dhc:statevalue>
                 </dhc:statevalues>
             </dhc:state>
         </dhc:device>
